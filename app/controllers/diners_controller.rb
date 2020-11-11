@@ -1,7 +1,6 @@
 class DinersController < ApplicationController
     def show
         @diner = Diner.find(params[:id])
-        @reservation = Reservation.find(params[:id])
     end
     
     def new
@@ -27,6 +26,7 @@ class DinersController < ApplicationController
     def destroy
         @diner = Diner.find(params[:id]).delete
         redirect_to homecooks_path
+    
     end
 
     private

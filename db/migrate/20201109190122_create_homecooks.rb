@@ -4,6 +4,7 @@ class CreateHomecooks < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :password
       t.string :email
+      t.text   :bio
       t.string :neighborhood
       t.string :cuisine
       t.string :address

@@ -1,0 +1,15 @@
+<h1><%= @dish.name %></h1>
+<img src=<%= @dish.dish_pic %>alt="Description of dish picture" width="500">
+<p>
+<h2>Description</h2>
+<%= @dish.description %><br>
+<h2>Dish Ingredients</h2>
+<%= @dish.ingredient %>
+
+<h2> Get it here...</h2>
+<ul>
+<% @dish.homecooks.each do |homecook|%>
+<li><%= link_to homecook.name, homecook_path(homecook) %></li>
+
+<% end %>
+</ul>

@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_191151) do
     t.string "name"
     t.string "password"
     t.string "email"
+    t.text "bio"
     t.string "neighborhood"
     t.string "cuisine"
     t.string "address"

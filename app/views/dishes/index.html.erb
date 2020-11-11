@@ -1,0 +1,8 @@
+<h1>Food, Glorious Food!</h1>
+<br>
+<% @dishes.each do |dish| %>
+<%= link_to dish.name, dish_path(dish) %><br>
+ <%= link_to dish_path(dish) do  %>
+ <img src=<%= dish.dish_pic %>alt="Description of Dish" width="250"><br>
+<% end %>
+<% end %>

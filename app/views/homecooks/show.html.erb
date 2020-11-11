@@ -3,6 +3,7 @@
 <img src=<%= @homecook.profile_pic %>>
 
 <h2>About Me</h2>
+<%= @homecook.bio %>
 <%= @homecook.neighborhood %><br>
 <%= @homecook.cuisine %><br>
 <%= @homecook.open %><br>
@@ -11,8 +12,10 @@
 <br>
 
 <h2>Menu</h2>
-<p><%= link_to "View Full Menu", menu_path(@homecook.menus) %> </p>
-<% @homecook.dishes.uniq.each do |dish| %>
-<%= dish.name %><br>
-<img src=<%= dish.dish_pic %> alt="Description of Picture" width="150" height="150"><br>
+<% @homecook.menus.uniq.each do |menu| %>
+<%= menu.dish.name %> $<%= menu.price %><br>
+<img src=<%= menu.dish.dish_pic %> alt="Description of Picture" width="150" height="150"><br>
+<p><%= menu.dish.description %></p>
 <% end%>
+
+

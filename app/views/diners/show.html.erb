@@ -13,14 +13,14 @@
 <ul>
 <% @diner.upcoming_reservations.each do |reso| %>
     <li>On <%= reso.date %> at <%= reso.time %> You'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %></li>
-    <li><%= link_to "edit this reservation", edit_reservation_path(@reservation) %> 
+    <%= button_to "Edit Reservation", edit_reservation_path(reso), method: :get %>
 <% end %>
 </ul>
 <h3> Past Reservations</h3>
 <ul>
 <% @diner.past_reservations.each do |reso| %>
     <li>On <%= reso.date %> at <%= reso.time %> You'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %></li>
-    <li><%= link_to "write a review", new_reservation_path(@reservation) %> 
+    <li><%= link_to "write a review", new_reservation_path(reso) %> 
 <% end %>
 </ul>
 
@@ -38,3 +38,5 @@
 
 <%# <h3>Past Reservations</h3> %>
 <%# <%= @diner.past_name %> 
+
+

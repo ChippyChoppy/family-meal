@@ -77,12 +77,14 @@ home_pics = [
 
 puts "Creating Homecook"
 15.times do
-    Homecook.create(name: Faker::FunnyName.two_word_name, password: Faker::Internet.password, email: Faker::Internet.email, neighborhood: Faker::Address.community, cuisine: Faker::Nation.nationality, address: Faker::Address.full_address, open: "Daily 5-9", profile_pic: cook_pics.sample, home_pic: home_pics.sample)
+    Homecook.create(name: Faker::FunnyName.two_word_name, password: Faker::Internet.password, email: Faker::Internet.email, bio: Faker::ChuckNorris.fact, neighborhood: Faker::Address.community, cuisine: Faker::Nation.nationality, address: Faker::Address.full_address, open: "Daily 5-9", profile_pic: cook_pics.sample, home_pic: home_pics.sample)
 end
+
+
 
 puts "Creating Reservation"
 30.times do
-    Reservation.create(homecook_id: Homecook.all.sample.id, diner_id: Diner.all.sample.id, party_size: rand(1..6), date: Faker::Date.between(from: '2020-10-25', to:'2020-12-25'), time: rand(17..21))
+    Reservation.create(homecook_id: Homecook.all.sample.id, diner_id: Diner.all.sample.id, party_size: rand(1..6), date: Faker::Date.between(from: '2020-10-25', to:'2020-12-25'), time: rand(18..21))
 end
 
 availability = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Mon, Wed, Fri", "Tues & Thurs", "Friday - Sunday"]

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 resources :diners, except: [:index]
 resources :homecooks, only: [:index, :show]
-resources :reservations, except: [:index, :show]
+resources :reservations, except: [:index]
 resources :dishes, except: [:edit, :update, :delete]
 resources :menus, only: [:show]
 end
