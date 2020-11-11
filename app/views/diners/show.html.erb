@@ -1,0 +1,23 @@
+<h1>Member Profile</h1>
+
+<h3>Pull up a chair, <%= @diner.name %>!</h3>
+
+<img src=<%= @diner.profile_pic %> alt= "Description of Profile Pic" width="500"><br>
+
+<h3>About Me</h3>
+<%= @diner.location %><br>
+<%= @diner.dietary_restriction %><br>
+
+<h3>All Reservations</h3>
+<% @diner.reservations.each do |reservation| %>
+    <%= reservation.diner_id %>
+<% end %>
+
+<h3>Upcoming Reservations</h3>
+<p><%= link_to "Make a new Reservation", new_reservation_path %> </p>
+<%= link_to @diner.upcoming_name, edit_reservation_path(@diner) %>
+
+<h3>Past Reservations</h3>
+<%= @diner.past_name %>
+
+<%= button_to "Delete profile", diner_path(@diner), method: :delete %>

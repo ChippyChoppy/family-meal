@@ -82,7 +82,7 @@ end
 
 puts "Creating Reservation"
 30.times do
-    Reservation.create(homecook_id: Homecook.all.sample.id, diner_id: Diner.all.sample.id, party_size: rand(1..6), date: Faker::Date.in_date_period(month: 3), time: rand(17..21))
+    Reservation.create(homecook_id: Homecook.all.sample.id, diner_id: Diner.all.sample.id, party_size: rand(1..6), date: Faker::Date.between(from: '2020-10-25', to:'2020-12-25'), time: rand(17..21))
 end
 
 availability = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Mon, Wed, Fri", "Tues & Thurs", "Friday - Sunday"]

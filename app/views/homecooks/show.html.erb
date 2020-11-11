@@ -1,0 +1,18 @@
+<h1><%= @homecook.name %></h1>
+
+<img src=<%= @homecook.profile_pic %>>
+
+<h2>About Me</h2>
+<%= @homecook.neighborhood %><br>
+<%= @homecook.cuisine %><br>
+<%= @homecook.open %><br>
+<%= @homecook.avg_price %><br>
+<p><%= link_to "Make Reservation", new_reservation_path %> </p>
+<br>
+
+<h2>Menu</h2>
+<p><%= link_to "View Full Menu", menu_path(@homecook.menus) %> </p>
+<% @homecook.dishes.uniq.each do |dish| %>
+<%= dish.name %><br>
+<img src=<%= dish.dish_pic %> alt="Description of Picture" width="150" height="150"><br>
+<% end%>

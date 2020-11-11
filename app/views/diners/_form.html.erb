@@ -1,0 +1,22 @@
+<%= form_for @diner do |f| %>
+<p>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<p>
+<%= f.label :email %>
+<%= f.email_field :email %>
+<p>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<p>
+<%= f.label :location %>
+<%= f.text_field :location %>
+<p>
+<%= f.label :dietary_restriction %>
+<%= f.text_field :dietary_restriction %>
+<p>
+<%= f.label :profile_pic %>
+<%= f.file_field :profile_pic %>
+<p>
+<%= f.submit "Bon Appetit!" %>
+<% end %>

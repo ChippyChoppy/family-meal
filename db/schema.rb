@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_191151) do
     t.integer "homecook_id", null: false
     t.integer "diner_id", null: false
     t.integer "party_size"
-    t.string "date"
+    t.date "date"
     t.integer "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

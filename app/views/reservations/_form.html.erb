@@ -1,0 +1,19 @@
+<%= form_for @reservation do |f| %>
+<p>
+<%= f.label :date %>
+<%= f.date_field :date %>
+<p>
+<%= f.label :time %>
+<%= f.number_field :time %>
+<p>
+<%= f.label :homecook_id %>
+<%= f.collection_select :homecook_id, Homecook.all, :id, :name %>
+<p>
+<%= f.label :diner_id %>
+<%= f.collection_select :diner_id, Diner.all, :id, :name %>
+<p>
+<%= f.label :party_size %>
+<%= f.number_field :party_size %>
+<p>
+<%= f.submit "Bon Appetit!" %>
+<% end %>
