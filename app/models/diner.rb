@@ -1,6 +1,11 @@
 class Diner < ApplicationRecord
     has_many :reservations
     has_many :homecooks, through: :reservations 
+    validates :email, uniqueness: true
+    validates :name, :password, :email, :location, :profile_pic, presence: true 
+    validates :password, length: { in: 8..20}
+    
+
 
     def upcoming_reservations
         self.reservations.where("date >= ?", Date.today.to_s)

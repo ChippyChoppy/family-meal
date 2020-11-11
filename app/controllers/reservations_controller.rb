@@ -11,8 +11,12 @@ class ReservationsController < ApplicationController
 
     def create
         @reservation = Reservation.new(reservation_params)
-        @reservation.save
-        redirect_to diner_path(@reservation.diner)
+        if @reservation.save
+            redirect_to diner_path(@reservation.diner)
+        else  
+            flash[:errors] = @reservation.errors.full_messages
+            redirect_to new_reservation_path
+        end
     end
 
     def edit
@@ -22,8 +26,11 @@ class ReservationsController < ApplicationController
 
     def update
         @reservation = Reservation.find(params[:id])
-        @reservation.update(reservation_params)
-        redirect_to diner_path(@reservation.diner)
+        if @reservation.update(reservation_params)
+            redirect_to diner_path(@reservation.diner)
+        else  
+            flash[:errors] = @reservation.errors.full_messages
+            redirect_to edit_reservation_path    
     end
 
     def destroy

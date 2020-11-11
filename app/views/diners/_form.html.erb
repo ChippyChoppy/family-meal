@@ -1,4 +1,11 @@
+
+
 <%= form_for @diner do |f| %>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p><%= error  %></p>
+    <% end %>
+<% end %>
 <p>
 <%= f.label :name %>
 <%= f.text_field :name %>

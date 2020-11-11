@@ -1,4 +1,9 @@
 <%= form_for @reservation do |f| %>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p><%= error  %></p>
+    <% end %>
+<% end %>
 <p>
 <%= f.label :date %>
 <%= f.date_field :date %>

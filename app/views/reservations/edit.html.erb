@@ -1,6 +1,11 @@
 <h1> Edit your reservation </h1>
 
 <%= form_for @reservation do |f| %>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p><%= error  %></p>
+    <% end %>
+<% end %>
 <p>
 <%= f.label :date %>
 <%= f.date_field :date %>
@@ -20,4 +25,3 @@
 <%= f.submit "Bon Appetit!" %>
 <% end %>
 
-<%= button_to "Delete Reservation", diner_path(@reservation.diner), method: :delete %>

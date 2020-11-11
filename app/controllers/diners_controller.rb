@@ -9,8 +9,12 @@ class DinersController < ApplicationController
 
     def create
         @diner = Diner.new(diner_params)
-        @diner.save
+        if @diner.save
         redirect_to diner_path(@diner)
+        else  
+        flash[:errors] = @diner.errors.full_messages
+        redirect_to new_diner_path
+        end
     end
 
     def edit 
@@ -19,8 +23,12 @@ class DinersController < ApplicationController
 
     def update
         @diner = Diner.find(params[:id])
-        @diner.update(diner_params)
+        if @diner.update(diner_params)
         redirect_to diner_path(@diner)
+        else 
+        flash[:errors] = @diner.errors.full_messages
+        redirect_to edit_diner_path
+        end
     end
     
     def destroy
