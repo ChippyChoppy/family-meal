@@ -1,6 +1,6 @@
 <h1><%= @homecook.name %></h1>
 
-<img src=<%= @homecook.profile_pic %>>
+<img src=<%= @homecook.profile_pic %> alt="Profile photograph of homecook.", width= "400">
 
 <h2>About Me</h2>
 <p class="bio"><%= @homecook.bio %></p>
@@ -14,7 +14,7 @@
 <h2>Menu</h2>
 <% @homecook.menus.uniq.each do |menu| %>
 <%= menu.dish.name %> $<%= menu.price %><br>
-<img src=<%= menu.dish.dish_pic %> alt="Description of Picture" width="150" height="150"><br>
+<img src=<%= menu.dish.dish_pic %> alt="Description of Picture" width="250"><br>
 <p><%= menu.dish.description %></p>
 <% end%>
 

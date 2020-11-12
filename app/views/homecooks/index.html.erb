@@ -5,7 +5,7 @@
 <% @homecooks.each do |cook|  %>
 <h3><%= link_to cook.name, homecook_path(cook) %></h3>
 <%= link_to homecook_path(cook) do %>
-<img src=<%= cook.profile_pic  %>>
+<img src=<%= cook.profile_pic  %> alt="Profile picture of Homecook", width="400">
 <% end %>
 <li> Neighborhood: <%= cook.neighborhood %></li>
 <li> Cuisine: <%= cook.cuisine %>
