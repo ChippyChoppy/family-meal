@@ -30,7 +30,8 @@ class ReservationsController < ApplicationController
             redirect_to diner_path(@reservation.diner)
         else  
             flash[:errors] = @reservation.errors.full_messages
-            redirect_to edit_reservation_path    
+            redirect_to edit_reservation_path  
+        end
     end
 
     def destroy
@@ -42,4 +43,4 @@ class ReservationsController < ApplicationController
     def reservation_params
         params.require(:reservation).permit(:homecook_id, :diner_id, :party_size, :date, :time)
     end
-end
+end #class

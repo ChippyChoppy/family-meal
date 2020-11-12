@@ -14,6 +14,7 @@
 <% @diner.upcoming_reservations.each do |reso| %>
     <li>On <%= reso.date %> at <%= reso.time %> You'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %></li>
     <%= button_to "Edit Reservation", edit_reservation_path(reso), method: :get %>
+    <p><%= link_to "View reservation", reservation_path(reso) %></p>
 <% end %>
 </ul>
 <h3> Past Reservations</h3>
@@ -24,7 +25,7 @@
 <% end %>
 </ul>
 
-<p><%= button_to "Delete profile", diner_path(@diner), method: :delete %></p>
+
 
 <%# ---------- This pulls all of the items we want and lets us see the reservation info we want to see, but we probably don't want this much logic in the html views I think? ------------  %>
 
