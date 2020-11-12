@@ -2,11 +2,15 @@
 
 <h2>Meet our Homecooks</h2>
 <ul>
-<% @homecooks.each do |cook|  %>
-<h3><%= link_to cook.name, homecook_path(cook) %></h3>
+<div class="index-container">
+    <% @homecooks.each do |cook|  %>
+    <div class="index-tile">
+    <h3><%= link_to cook.name, homecook_path(cook) %></h3>
 <%= link_to homecook_path(cook) do %>
-<img src=<%= cook.profile_pic  %> alt="Profile picture of Homecook", width="400">
+<img src=<%= cook.profile_pic  %> alt="Profile picture of Homecook", width="400" class="index-img">
 <% end %>
 <li> Neighborhood: <%= cook.neighborhood %></li>
 <li> Cuisine: <%= cook.cuisine %>
+</div>
 <% end %>
+</div>
