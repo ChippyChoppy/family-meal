@@ -63,6 +63,16 @@
     color: #343434;
     font-weight: 800;
 }
+.nav li a:hover {
+  text-decoration: none;
+  color: #DC047B;
+  font-weight: 800;
+}
+
+.right {
+  float: right;
+}
+
 
   /* --------------CSS for background on every page --------------------- */
 
@@ -75,7 +85,35 @@
     height: 100%; */
   }
 
-  .bio {
+.index-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.index-tile {
+  padding: 10px 36px;
+  margin: 10px 0px;
+  text-align: center;
+  background-color: #f4cbc6;
+  border-radius: 25px;
+  border: 3px solid #908783;
+}
+
+.index-img {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+  border: 3px solid #DC047B;
+}
+
+/* .index-tile:hover {
+  background-color: #F1DDCF;
+     color: #DC047B;
+     transition: 2s;
+} */
+
+.bio {
     padding: 10px;
     background-color: #EAA221;
     border-radius: 25px;
