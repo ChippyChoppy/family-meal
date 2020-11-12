@@ -8,11 +8,12 @@ class DinersController < ApplicationController
     end
 
     def create
-        @diner = Diner.new(diner_params)
-        if @diner.save
-        redirect_to diner_path(@diner)
+        diner = Diner.create(diner_params)
+        if diner.valid?
+            session[:user_id] = diner.id
+            redirect_to diner_path(diner)
         else  
-        flash[:errors] = @diner.errors.full_messages
+        flash[:errors] = diner.errors.full_messages
         redirect_to new_diner_path
         end
     end
