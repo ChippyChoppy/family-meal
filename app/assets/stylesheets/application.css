@@ -20,6 +20,7 @@
 
  body {
      background-color: #F1DDCF;
+     color: #908783
  }
 
 .banner img {
@@ -39,7 +40,7 @@
 .nav {
     background-color:#f4cbc6;;
     height: 30px;
-    width: 100%;
+    width: 90%;
     margin: 0px auto;
     padding: 0px;
   }
@@ -60,7 +61,7 @@
 
 .nav li a {
     text-decoration: none;
-    color: #343434;
+    color: #908783;
     font-weight: 800;
 }
 .nav li a:hover {
@@ -92,7 +93,7 @@
 }
 
 .index-tile {
-  padding: 10px 36px;
+  padding: 30px 30px;
   margin: 10px 0px;
   text-align: center;
   background-color: #f4cbc6;
@@ -113,9 +114,71 @@
      transition: 2s;
 } */
 
-.bio {
+  /* --------------CSS for background on every page --------------------- */
+  .show-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  
+  .show-tile {
+    padding: 15px 15px;
+    width: 25%;
+    margin: 10px 0px;
+    text-align: center;
+    background-color: #f4cbc6;
+    border-radius: 25px;
+    border: 3px solid #908783;
+  }
+  
+  .show-img {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    border: 3px solid #DC047B;
+  }
+
+/* ----------------------- CSS for Forms ------------------------------*/
+
+.form-container {
+  max-width: 300px;
+  margin: 0px auto;
+  background-color: #f4cbc6;
+  color: #908783;
+  border: 3px solid #908783;
+  padding: 20px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.form-btn {
+  background-color: #DC047B;
+  margin-top: 10px;
+  border-radius: 25px;
+}
+
+.form-input {
+  margin-top: 10px;
+}
+
+  /* --------------CSS grid for show pages --------------------- */
+
+  .about {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  }
+  .bio {
+    width: 300px;
+    height: 175px;
     padding: 10px;
     background-color: #EAA221;
     border-radius: 25px;
     border-bottom: 2px solid #DC047B;
   }
+
+    .profile-pic {
+      width: 400px;
+      border: 3px solid #DC047B;
+    }
+

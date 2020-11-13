@@ -1,27 +1,38 @@
+<div class="form-container">
 <h1> Edit your reservation </h1>
-
-<%= form_for @reservation do |f| %>
 <% if flash[:errors]%>
     <% flash[:errors].each do |error| %>
         <p><%= error  %></p>
     <% end %>
 <% end %>
+<%= form_for @reservation do |f| %>
+<div class="form-input">
 <p>
 <%= f.label :date %>
 <%= f.date_field :date %>
+</div>
 <p>
+<div class="form-input">
 <%= f.label :time %>
 <%= f.number_field :time %>
+</div>
 <p>
+<div class="form-input">
 <%= f.label :homecook_id %>
 <%= f.collection_select :homecook_id, Homecook.all, :id, :name %>
+</div>
 <p>
+<div class="form-input">
 <%= f.label :diner_id %>
 <%= f.collection_select :diner_id, Diner.all, :id, :name %>
+</div>
 <p>
+<div class ="form-input">
 <%= f.label :party_size %>
 <%= f.number_field :party_size %>
+</div>
 <p>
-<%= f.submit "Bon Appetit!" %>
+<%= f.submit "Bon Appetit!", class: "form-btn" %>
 <% end %>
+</div>
 

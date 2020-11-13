@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
     # def new 
     # end
 
+    def create 
+        redirect_to homecooks_path  
+    end
+
     # def create 
     #     user = Diner.find_by(email: params[:session][:email])
     #     if user && user.authenticate(params[:session][:password])

@@ -1,21 +1,36 @@
-<h1><%= @homecook.name %></h1>
+<h1>Welcome to <%= @homecook.name %>'s home!</h1>
 
-<img src=<%= @homecook.profile_pic %> alt="Profile photograph of homecook.", width= "400">
+<div class="index-container">
+    <div class="index-tile">
+        <img src=<%= @homecook.profile_pic %> alt="Profile photograph of homecook.", class="profile-pic"></div>
+        
+        <div class="bio"> 
+            <h2>About Me</h2>
+            <p><%= @homecook.bio %></p>
+        </div> 
+    </div>
 
-<h2>About Me</h2>
-<p class="bio"><%= @homecook.bio %></p>
-<%= @homecook.neighborhood %><br>
-<%= @homecook.cuisine %><br>
-<%= @homecook.open %><br>
-<%= @homecook.avg_price %><br>
-<p><%= link_to "Make Reservation", new_reservation_path %> </p>
-<br>
+    <div class="bio">
+        <h2>Information:</h2>
+        <p><b>Neighborhood: </b><%= @homecook.neighborhood %></p>
+        <p><b>Cusine: </b><%= @homecook.cuisine %></p>
+        <p><b>Hours of Operation: </b><%= @homecook.open %></p>
+        <p><b>Average price: $</b><%= @homecook.avg_price %></p>
+        <p><%= link_to "Make Reservation", new_reservation_path %> </p>
+    </div>
 
+
+<p>
 <h2>Menu</h2>
+<div class="show-container">
+</p>
 <% @homecook.menus.uniq.each do |menu| %>
+<div class="show-tile">
 <%= menu.dish.name %> $<%= menu.price %><br>
-<img src=<%= menu.dish.dish_pic %> alt="Description of Picture" width="250"><br>
+<img src=<%= menu.dish.dish_pic %> alt="Description of Picture" width="250", class="show-img"><br>
 <p><%= menu.dish.description %></p>
+</div>
 <% end%>
+</div>
 
 

@@ -1,5 +1,16 @@
-<h1>Cancel your Reservation</h1>
-<p>
-Confirm reservation cancellation with <%= @reservation.homecook.name %> on <%= @reservation.date %>
-
+<h1>Your Upcoming Reservation Details</h1>
+<div class="view-reso">
+<div class="reso">
+<h3>You are currently booked to dine at <%= @reservation.homecook.name%>'s home.</h3>
+<p><b>Date: </b><%= @reservation.date %></p>
+<p><b>Time: </b><%= @reservation.time %>:00</p>
+<p><b>Party Size: </b><%= @reservation.party_size %></p>
+<p><b>Address: </b><%= @reservation.homecook.address %></p>
+</div>
+<%= link_to "Back to Profile", diner_path(@reservation.diner)%>
+<p></p>
+<div class="delete-reso">
+Are you sure you want to cancel your reservation with <b><%= @reservation.homecook.name %></b> on <b><%= @reservation.date %></b>
 <%= button_to "Delete Reservation", reservation_path(@reservation), method: :delete %>
+</div>
+</div>

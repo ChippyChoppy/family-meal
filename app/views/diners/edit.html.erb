@@ -1,3 +1,44 @@
-<h1> Edit your profile </h1>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <p><%= error  %></p>
+    <% end %>
+<% end %>
 
-<%= render "form" %>
+<div class="form-container">
+<h1> Edit your profile </h1>
+<%= form_for @diner do |f| %>
+<p>
+<div class="form-input">
+<%= f.label :name %>
+<%= f.text_field :name %>
+</div>
+<p>
+<div class="form-input">
+<%= f.label :email %>
+<%= f.email_field :email %>
+</div>
+<p>
+<div class="form-input">
+<%= f.label :password %>
+<%= f.password_field :password %>
+</div>
+<p>
+<div class="form-input">
+<%= f.label :location %>
+<%= f.text_field :location %>
+</div>
+<p>
+<div class="form-input">
+<%= f.label :dietary_restriction %>
+<%= f.text_field :dietary_restriction %>
+</div>
+<p>
+<div class="form-input">
+<%= f.label :profile_pic %>
+<%= f.file_field :profile_pic %>
+</div>
+<p>
+<%= f.submit "Bon Appetit!", class: "form-btn" %>
+<% end %>
+</div>
+
