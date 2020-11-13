@@ -1,43 +1,42 @@
 <h1>Member Profile</h1>
 
 <h3>Pull up a chair, <%= @diner.name %>!</h3>
+<div class="index-container">
+    <div class="index-tile">
+        <img src=<%= @diner.profile_pic %> alt= "Description of Profile Pic", class="profile-pic">
+    </div>
 
-<img src=<%= @diner.profile_pic %> alt= "Description of Profile Pic" width="500"><br>
 
+    <div class="bio">
+        <h2>About Me</h2>
+        <p><b>Location: </b><%= @diner.location %></p>
+        <p><b>Dietary Restrictions: </b><%= @diner.dietary_restriction %></p>
+    </div>
+</div>
 
-<h3>About Me</h3>
-<%= @diner.location %><br>
-<%= @diner.dietary_restriction %><br>
-
-<h3> Upcoming Reservations </h3>
+<div class="index-container">
+    <div class="bio-two">
+    <h2> Upcoming Reservations </h2>
 <ul>
-<% @diner.upcoming_reservations.each do |reso| %>
-    <li>On <%= reso.date %> at <%= reso.time %> You'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %></li>
-    <%= button_to "Edit Reservation", edit_reservation_path(reso), method: :get %>
-    <p><%= link_to "View reservation", reservation_path(reso) %></p>
-<% end %>
+    <% @diner.upcoming_reservations.each do |reso| %>
+        On <%= reso.date %> at <%= reso.time %>:00 you'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %>. <%= link_to "View reservation", reservation_path(reso) %>
+        <%= button_to "Edit Reservation", edit_reservation_path(reso), method: :get, class: "form-btn" %><br>
+    <% end %>
+    </div>
+  
 </ul>
-<h3> Past Reservations</h3>
+    <div class ="bio-two">
+<h2> Past Reservations</h2>
 <ul>
-<% @diner.past_reservations.each do |reso| %>
-    <li>On <%= reso.date %> at <%= reso.time %> You'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %></li>
-    <li><%= link_to "write a review", new_reservation_path(reso) %> 
-<% end %>
+    <% @diner.past_reservations.each do |reso| %>
+        On <%= reso.date %> at <%= reso.time %> You'll be eating with <%= link_to reso.homecook.name, homecook_path(reso.homecook) %>, at their home, located at <%= reso.homecook.address %>.
+        <%= link_to "write a review", new_reservation_path(reso) %><p></p>
+    <% end %>
 </ul>
+</div>
+</div>
 
 
 
-<%# ---------- This pulls all of the items we want and lets us see the reservation info we want to see, but we probably don't want this much logic in the html views I think? ------------  %>
-
-
-
-
-<%# </ul>
-<h3>Upcoming Reservations</h3>
-<p><%= link_to "Make a new Reservation", new_reservation_path %> </p>
-<%# <%= link_to @diner.upcoming_name, edit_reservation_path(@diner) %> 
-
-<%# <h3>Past Reservations</h3> %>
-<%# <%= @diner.past_name %> 
 
 

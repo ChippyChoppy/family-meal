@@ -2,31 +2,35 @@
 
 <div class="index-container">
     <div class="index-tile">
-        <img src=<%= @homecook.profile_pic %> alt="Profile photograph of homecook.", class="profile-pic"></div>
-        
-        <div class="bio"> 
-            <h2>About Me</h2>
-            <p><%= @homecook.bio %></p>
-        </div> 
+        <img src=<%= @homecook.profile_pic %> alt="Profile photograph of homecook.", class="profile-pic">
     </div>
-
-    <div class="bio">
+        
+    <div class="bio"> 
+        <h2>About Me</h2>
+        <p><%= @homecook.bio %></p>
+    </div> 
+</div>
+<div class="index-container">
+    <div class="bio"> 
         <h2>Information:</h2>
         <p><b>Neighborhood: </b><%= @homecook.neighborhood %></p>
         <p><b>Cusine: </b><%= @homecook.cuisine %></p>
         <p><b>Hours of Operation: </b><%= @homecook.open %></p>
         <p><b>Average price: $</b><%= @homecook.avg_price %></p>
-        <p><%= link_to "Make Reservation", new_reservation_path %> </p>
+        <p><%= button_to "Make Reservation", new_reservation_path, method: :post, class: "form-btn" %> </p>
     </div>
 
-
+    <div class="index-tile">
+        <img src=<%= @homecook.home_pic %> alt="Photograph of homecook's dining room.", class="profile-pic">
+    </div>
+</div>
 <p>
 <h2>Menu</h2>
 <div class="show-container">
 </p>
 <% @homecook.menus.uniq.each do |menu| %>
 <div class="show-tile">
-<%= menu.dish.name %> $<%= menu.price %><br>
+<h3><%= menu.dish.name %></h3> <h3>$<%= menu.price %></h3>
 <img src=<%= menu.dish.dish_pic %> alt="Description of Picture" width="250", class="show-img"><br>
 <p><%= menu.dish.description %></p>
 </div>
